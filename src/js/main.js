@@ -11,7 +11,7 @@ async function fetchWorkExperience() {
     }
 
     try {
-        // Skickar förfrågan till API:et för att hämta data
+        // Skickar GET förfrågan till API:et för att hämta data
         const response = await fetch(apiUrl);
 
         // Kontrollera om förfrågan lyckades, om inte, skicka ett felmeddelande
@@ -47,6 +47,7 @@ async function fetchWorkExperience() {
 async function addWorkExperience(event) {
     event.preventDefault();
 
+    // Skapar ett objekt för den nya arbetserfarenheten med värden från formuläret
     const newExperience = {
         companyname: document.querySelector("#companyname").value,
         jobtitle: document.querySelector("#jobtitle").value,
@@ -56,23 +57,50 @@ async function addWorkExperience(event) {
         description: document.querySelector("#description").value,
     };
 
+    // Array för att lagra felmeddelanden
+    let errors = [];
+
+    // Kontrollera om alla fält är tomma
+    if (!newExperience.companyname && !newExperience.jobtitle && !newExperience.location && !newExperience.startdate && !newExperience.enddate && !newExperience.description) {
+        errors.push("Formuläret kan inte vara tomt.");
+    } else {
+        if (!newExperience.companyname) errors.push("Du måste ange ett företagsnamn.");
+        if (!newExperience.jobtitle) errors.push("Du måste ange en jobbtitel.");
+        if (!newExperience.location) errors.push("Du måste ange en plats.");
+        if (!newExperience.startdate) errors.push("Du måste ange ett startdatum.");
+        if (!newExperience.enddate) errors.push("Du måste ange ett slutdatum.");
+        if (!newExperience.description) errors.push("Du måste ange en beskrivning av ditt arbete.");
+    }
+
+    if (errors.length > 0) {
+        document.getElementById('response-message').textContent = errors.join(", ");
+        return; // Stoppa om det finns fel
+    }  
+
     try {
+        // Skickar förfrågan till API:et för att lägga till den nya arbetserfarenheten
         const response = await fetch(apiUrl, {
-            method: 'POST',
+            method: 'POST', // POST-förfrågan
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newExperience)
+            body: JSON.stringify(newExperience) // Konvertera till JSON
         });
 
+
         if (!response.ok) {
-            throw new Error('Något gick fel med att skicka data');
+            const errorData = await response.json();
+            // Visar felmeddelanden från servern om de finns
+            document.getElementById('response-message').textContent = errorData.errors.join(", ");
+            return;
         }
 
         const result = await response.json();
+        // Meddelande för att bekräfta att arbetserfarenheten har lagts till
         document.getElementById('response-message').textContent = 'Arbetserfarenhet tillagd!';
     } catch (error) {
         console.error('Fel vid tillägg av arbetserfarenhet:', error);
+        // Visa felmeddelande
         document.getElementById('response-message').textContent = 'Ett fel uppstod, försök igen.';
     }
 }

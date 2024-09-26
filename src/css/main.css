@@ -217,3 +217,88 @@ form#add-experience-form button:hover {
     background-color: #c9302c; 
 }
 
+@media (max-width: 600px) {
+    /* För body */
+    body {
+        font-size: 0.9em;
+    }
+
+    /* För header */
+    header {
+        font-size: 1.2em;
+        padding: 8px 0;
+    }
+
+    /* För main */
+    main {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* För sektioner */
+    section {
+        max-width: 100%;
+    }
+
+    /* För navigationsmeny */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* För rubriker */
+    h1 {
+        font-size: 1.5em;
+        margin: 15px 0;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    /* För footer */
+    footer {
+        font-size: 0.9em;
+        padding: 8px 0;
+    }
+
+    /* För arbetserfarenhet listan */
+    ul#work-experience-list li {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* För formuläret */
+    form#add-experience-form {
+        padding: 15px;
+        width: 90%;
+    }
+
+    form#add-experience-form input[type="text"],
+    form#add-experience-form input[type="date"],
+    form#add-experience-form textarea {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    form#add-experience-form button {
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    /* För fel- och bekräftelsemeddelanden */
+    #error-message, #success-message {
+        font-size: 0.9em;
+    }
+
+    /* För raderingsknappen */
+    .delete-button {
+        padding: 4px 8px;
+        font-size: 0.8em;
+    }
+}
+

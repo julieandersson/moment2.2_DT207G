@@ -77,6 +77,14 @@ h1, h2 {
     margin: 20px 0;
 }
 
+/* Styling för footer */
+footer {
+    background-color: #7fbf95;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 /* Styling för startsidan där listan med arbetserfarenheter skrivs ut som i "block" */
 
 ul#work-experience-list {

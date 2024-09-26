@@ -168,3 +168,22 @@ form#add-experience-form button:hover {
     margin-top: 15px;
     text-align: center;
 }
+
+/* Styling för raderingsknappen */
+.delete-button {
+    padding: 5px 10px;
+    background-color: #d9534f;
+    color: #ffffff; 
+    font-size: 0.9em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; 
+}
+
+.delete-button:hover {
+    background-color: #c9302c; 
+}
+

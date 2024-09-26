@@ -40,6 +40,15 @@ async function fetchWorkExperience() {
             <strong>Beskrivning:</strong> ${experience.description}
         `;
 
+            // Skapa raderingsknapp
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Radera';
+            deleteButton.className = 'delete-button';
+            deleteButton.addEventListener('click', () => deleteWorkExperience(experience.id)); // Kopplar raderingsfunktionen till knappen
+
+            // Lägg till knappen till varje arbetserfarenhet (list-item)
+            listItem.appendChild(deleteButton);
+
             // Lägg till i DOM
             listElement.appendChild(listItem);
         });
@@ -125,6 +134,28 @@ const form = document.getElementById('add-experience-form');
 if (form) {
     form.addEventListener('submit', addWorkExperience);
 }
+
+// Funktion för att radera en arbetserfarenhet
+async function deleteWorkExperience(id) {
+    const confirmed = confirm("Är du säker på att du vill radera denna arbetserfarenhet?");
+    if (!confirmed) return;
+
+    try {
+        const response = await fetch(`${apiUrl}/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error('Något gick fel vid raderingen.');
+        }
+
+        // Uppdatera listan efter radering
+        fetchWorkExperience();
+    } catch (error) {
+        console.error('Fel vid radering av arbetserfarenhet:', error);
+    }
+}
+
 
 // Kör funktionen när sidan laddas
 window.onload = fetchWorkExperience;

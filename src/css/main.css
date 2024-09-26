@@ -146,3 +146,25 @@ form#add-experience-form button {
 form#add-experience-form button:hover {
     background-color: #65a37e;
 }
+
+/* Styling för felmeddelanden */
+#error-message {
+    color: #d9534f;
+    background-color: #f9d6d5;
+    padding: 10px;
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Styling för bekräftelsemeddelanden */
+#success-message {
+    color: #5cb85c;
+    background-color: #dff0d8;
+    padding: 10px;
+    border: 1px solid #5cb85c;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}

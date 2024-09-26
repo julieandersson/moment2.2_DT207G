@@ -79,7 +79,10 @@ async function addWorkExperience(event) {
     }
 
     if (errors.length > 0) {
-        document.getElementById('response-message').textContent = errors.join(", ");
+        const errorDiv = document.getElementById('error-message');
+        errorDiv.textContent = errors.join(", ");
+        errorDiv.style.display = 'block'; // Visar felmeddelanden
+        document.getElementById('success-message').style.display = 'none'; // Dölj bekräftelsemeddelandet
         return; // Stoppa om det finns fel
     }  
 
@@ -96,18 +99,24 @@ async function addWorkExperience(event) {
 
         if (!response.ok) {
             const errorData = await response.json();
-            // Visar felmeddelanden från servern om de finns
-            document.getElementById('response-message').textContent = errorData.errors.join(", ");
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = errorData.errors.join(", ");
+            errorDiv.style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
             return;
         }
 
         const result = await response.json();
         // Meddelande för att bekräfta att arbetserfarenheten har lagts till
-        document.getElementById('response-message').textContent = 'Arbetserfarenhet tillagd!';
+        const successDiv = document.getElementById('success-message');
+        successDiv.textContent = 'Arbetserfarenhet tillagd!';
+        successDiv.style.display = 'block'; // Visar bekräftelseomeddelandet
+        document.getElementById('error-message').style.display = 'none'; // Döljer felmeddelanden
     } catch (error) {
-        console.error('Fel vid tillägg av arbetserfarenhet:', error);
-        // Visa felmeddelande
-        document.getElementById('response-message').textContent = 'Ett fel uppstod, försök igen.';
+        const errorDiv = document.getElementById('error-message');
+        errorDiv.textContent = 'Ett fel uppstod, försök igen.';
+        errorDiv.style.display = 'block';
+        document.getElementById('success-message').style.display = 'none';
     }
 }
 

@@ -5,10 +5,16 @@ const apiUrl = 'https://moment2-dt207g-bqqf.onrender.com/api/workexperience'; //
 // Funktion för att hämta arbetserfarenheter och visa dem i en lista
 async function fetchWorkExperience() {
     const listElement = document.getElementById('work-experience-list');
+
+    const loadingMessage = document.getElementById('loading-message'); // Hämta laddningsmeddelandet
+
     if (!listElement) {
         // Om elementet inte finns, avbryt funktionen
         return;
     }
+
+    // Visa laddningsmeddelandet
+    loadingMessage.style.display = 'block'; 
 
     try {
         // Skickar GET förfrågan till API:et för att hämta data
@@ -21,7 +27,6 @@ async function fetchWorkExperience() {
         // Gör om API-svaret till JSON-format
         const workExperiences = await response.json();
         
-        const listElement = document.getElementById('work-experience-list');
         listElement.innerHTML = ''; // Rensa listan innan uppdatering
 
         // Loopa genom varje arbetserfarenhet och lägg till den i listan
@@ -55,6 +60,9 @@ async function fetchWorkExperience() {
     } catch (error) {
         // Felmeddelande om något går fel under hämtningen
         console.error('Fel vid hämtning av arbetserfarenheter:', error);
+    } finally {
+        // Döljer laddningsmeddelandet när förfrågan är klar och listan visas på startsidan
+        loadingMessage.style.display = 'none';
     }
 }
 

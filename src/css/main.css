@@ -57,3 +57,92 @@ h1, h2 {
     margin: 20px 0;
 }
 
+/* Styling för startsidan där listan med arbetserfarenheter skrivs ut som i "block" */
+
+ul#work-experience-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling för varje arbetserfarenhets "block" */
+
+ul#work-experience-list li {
+    background-color: #d5f0de;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #7fbf95;
+}
+
+
+ul#work-experience-list li strong {
+    color: #000000;
+    font-size: 1.1em;
+}
+
+ul#work-experience-list li br {
+    margin-bottom: 10px;
+}
+
+/* Styling för formulär på lägg till-sidan */
+
+form#add-experience-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #d5f0de;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #7fbf95;
+}
+
+/* Styling för etiketterna */
+form#add-experience-form label {
+    font-weight: bold;
+    color: #000000;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+/* Styling för textfält och datumfält */
+
+form#add-experience-form input[type="text"],
+form#add-experience-form input[type="date"],
+form#add-experience-form textarea {
+    padding: 10px;
+    border: 1px solid #7fbf95;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Styling för textarea */
+form#add-experience-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Styling för submit-knappen */
+form#add-experience-form button {
+    padding: 10px;
+    background-color: #7fbf95;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form#add-experience-form button:hover {
+    background-color: #65a37e;
+}

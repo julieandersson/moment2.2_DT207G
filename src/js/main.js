@@ -32,7 +32,13 @@ async function fetchWorkExperience() {
             
             // Nytt list-item för varja arbetserfarenhet
             const listItem = document.createElement('li');
-            listItem.textContent = experience.jobtitle + " på " + experience.companyname + " (" + startDate + " - " + endDate + ") i " + experience.location + ": " + experience.description;
+            listItem.innerHTML = `
+            <strong>Jobbtitel:</strong> ${experience.jobtitle} <br>
+            <strong>Företagsnamn:</strong> ${experience.companyname} <br>
+            <strong>Plats:</strong> ${experience.location} <br>
+            <strong>Perioden:</strong> ${startDate} - ${endDate} <br>
+            <strong>Beskrivning:</strong> ${experience.description}
+        `;
 
             // Lägg till i DOM
             listElement.appendChild(listItem);

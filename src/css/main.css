@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #ececec; 
-    color: #333;
+    color: #000000;
 }
 
 /* Styling för header */
@@ -27,7 +27,27 @@ main {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
+
+/* Sektioner */
+section {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px 0;
+}
+
+section p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: justify;
+    margin: 10px 0;
+    max-width: 80ch;
+    line-height: 1.8em;
+}
+
 
 /* NAV meny */
 nav ul {
@@ -92,6 +112,7 @@ form#add-experience-form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
     background-color: #d5f0de;

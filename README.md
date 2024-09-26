@@ -20,7 +20,7 @@ På lägg till-sidan finns ett formulär där användaren kan lägga till nya ar
 Om-sidan beskriver webbplatsen och dess syfte, samt information om vilken databas-server som använts och mina egna slutsatser av uppgiften. 
 
 ### Använda tekniker
-Detta projekt är skapad med HTML, JavaScript och CSS samt använder Parcel för en automatiserad utvecklingsmiljö. Commits har gjorts i detta repository och webbplatsen är publicerats till Netlify. 
+Detta projekt är skapad med HTML, JavaScript och CSS samt använder Parcel för en automatiserad utvecklingsmiljö. Commits har gjorts i detta repository på Github. Redovisning av uppgiften sker i form av en videodemonstration. 
 
 ### Skapad av:
 - Julie Andersson

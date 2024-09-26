@@ -129,6 +129,9 @@ async function addWorkExperience(event) {
         successDiv.textContent = 'Arbetserfarenhet tillagd!';
         successDiv.style.display = 'block'; // Visar bekräftelseomeddelandet
         document.getElementById('error-message').style.display = 'none'; // Döljer felmeddelanden
+
+        // Rensa formulär efter att arbetserfarenhet har lagts til
+        form.reset();
     } catch (error) {
         const errorDiv = document.getElementById('error-message');
         errorDiv.textContent = 'Ett fel uppstod, försök igen.';
